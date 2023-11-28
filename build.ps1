@@ -1,5 +1,5 @@
 param(
-    [string]$sourceFolder = ".\cmake-build-debug"
+    [string]$sourceFolder = ".\"
 )
 
 # 设置目标文件夹名称的前缀
@@ -11,7 +11,7 @@ $targetFolders = Get-ChildItem $sourceFolder -Directory | Where-Object { $_.Name
 # 如果存在目标文件夹，则进行打包操作
 if ($targetFolders.Count -gt 0) {
     # 构造目标 zip 文件的路径
-    $zipFileName = "$targetFolderPrefix-$(Get-Date -Format 'yyyyMMdd-HHmmss').zip"
+    $zipFileName = "Release.zip"
     $zipFilePath = Join-Path $sourceFolder $zipFileName
 
     # 遍历每个目标文件夹，获取其中的所有 exe 文件
