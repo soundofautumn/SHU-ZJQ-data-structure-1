@@ -23,7 +23,7 @@ if ($targetFolders.Count -gt 0) {
     # 打包所有 exe 文件成 zip
     Compress-Archive -Path $exeFiles.FullName -DestinationPath $zipFilePath
 
-    Write-Host "打包成功，文件保存在: $zipFilePath"
+    Write-Host "Archive Success, The File Path is: $zipFilePath"
 } else {
-    Write-Host "未找到以'$targetFolderPrefix'开头的文件夹。"
+    Write-Host "Cannot Find Folder with '$targetFolderPrefix' Prefix"
 }
