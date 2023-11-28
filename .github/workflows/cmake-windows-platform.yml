@@ -45,6 +45,10 @@ jobs:
       - name: Run Release
         run: |
           ${{ github.workspace }}/build.cmd ${{ steps.strings.outputs.build-output-dir }}
+      - name: Tag Release
+        run: |
+          git tag -a latest -m "latest"
+          git push origin latest
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
