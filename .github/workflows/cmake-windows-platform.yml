@@ -47,10 +47,10 @@ jobs:
           ${{ github.workspace }}/build.cmd ${{ steps.strings.outputs.build-output-dir }}
       - name: Tag Release
         run: |
-          git config user.name "GitHub Action"
-          git config user.email "bloop@blorp.com"
-          git tag -a latest -m "latest"
-          git push origin latest
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git tag latest -f
+          git push --tags origin HEAD:refs/tags/latest
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
