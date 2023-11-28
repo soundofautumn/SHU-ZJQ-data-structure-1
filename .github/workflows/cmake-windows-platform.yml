@@ -44,7 +44,7 @@ jobs:
         run: ctest --build-config ${{ env.build_type }}
       - name: Run Release
         run: |
-          ./build.ps1 ${{ steps.strings.outputs.build-output-dir }}/cmake-build-release
+          ${{ github.workspace }}/build.ps1 ${{ steps.strings.outputs.build-output-dir }}/cmake-build-release
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
