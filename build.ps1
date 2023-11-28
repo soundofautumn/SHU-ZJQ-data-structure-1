@@ -16,7 +16,8 @@ if ($targetFolders.Count -gt 0) {
 
     # 遍历每个目标文件夹，获取其中的所有 exe 文件
     $exeFiles = foreach ($folder in $targetFolders) {
-        Get-ChildItem $folder.FullName -Filter "*.exe"
+    $releaseFolder = Join-Path $folder.FullName "Release"
+        Get-ChildItem $releaseFolder -Filter "*.exe"
     }
 
     # 打包所有 exe 文件成 zip
