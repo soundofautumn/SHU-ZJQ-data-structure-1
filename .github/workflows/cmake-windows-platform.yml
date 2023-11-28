@@ -58,4 +58,3 @@ jobs:
           files: ${{ steps.strings.outputs.build-output-dir }}/Release.zip
           tag_name: latest
           move_existing_tag: true
-        if: startsWith(github.ref, 'refs/tags/')
