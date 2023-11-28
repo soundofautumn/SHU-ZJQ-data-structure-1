@@ -47,6 +47,8 @@ jobs:
           ${{ github.workspace }}/build.cmd ${{ steps.strings.outputs.build-output-dir }}
       - name: Tag Release
         run: |
+          git config user.name "GitHub Action"
+          git config user.email "bloop@blorp.com"
           git tag -a latest -m "latest"
           git push origin latest
       - name: Create Release
