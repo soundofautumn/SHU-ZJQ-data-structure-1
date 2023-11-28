@@ -55,6 +55,5 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ steps.strings.outputs.build-output-dir }}/Release.zip
+          files: ./build/Release.zip
           tag_name: latest
-          move_existing_tag: true
