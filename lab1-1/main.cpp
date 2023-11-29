@@ -1,14 +1,13 @@
 //
-// Created by 邱姜铭 on 2023/11/28.
+// Created by 邱姜铭 on 2023/11/29.
 //
 #include <iostream>
-#include "SeqList.h"
+#include "DblLinkList.h"
 #include "Point2D.h"
 
 using namespace std;
-
 int main() {
-    SeqList<Point2D> list;
+    DblLinkList <Point2D> list;
     auto visit = [](const Point2D &point2D) {
         cout << point2D << endl;
     };
@@ -25,15 +24,11 @@ int main() {
          << list.GetElem(1, point2D) << endl;
     cout << "The list is:" << endl;
     list.Traverse(visit);
-    cout << "Reverse list test" << endl;
-    list.Reverse();
     cout << "The list is:" << endl;
     list.Traverse(visit);
     point2D = Point2D(2, 3);
     cout << "The location of the point is:"
          << list.LocateElem(point2D) << endl;
-    cout << "Delete same item test" << endl;
-    list.DelSameItem(point2D);
     cout << "The list is:" << endl;
     list.Traverse(visit);
     cout << "The length of the list is:"
@@ -49,4 +44,3 @@ int main() {
     cout << "The length of the list is:"
          << list.GetLength() << endl;
 }
-
