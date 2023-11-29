@@ -21,4 +21,4 @@ add_executable(PlaneClass main.cpp
         Rectangle.h
         Polygon.cpp
         Polygon.h
-        ../lab1-1/main.cpp)
+        main.cpp)
