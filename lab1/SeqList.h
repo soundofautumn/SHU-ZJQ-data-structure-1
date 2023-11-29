@@ -10,9 +10,12 @@
 
 #define DEFAULT_SIZE 100
 
+#ifndef LIST_STATUS
+#define LIST_STATUS
 enum Status {
     SUCCESS, OVER_FLOW, RANGE_ERROR, NOT_PRESENT, ENTRY_FOUND
 };
+#endif
 
 template<class ElemType>
 class SeqList {
