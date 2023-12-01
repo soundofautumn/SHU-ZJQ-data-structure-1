@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.26)
 
-project(SeqList)
+project(SeqStack)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(SeqList
-        SeqList.h
+add_executable(SeqStack
         main.cpp
+        SeqStack.h
         Point2D.cpp
-        ../lab2/main.cpp)
+        Point2D.h
+)
