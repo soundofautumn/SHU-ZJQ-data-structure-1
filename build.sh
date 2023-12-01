@@ -33,7 +33,7 @@ if [ ${#targetFolders[@]} -gt 0 ]; then
         # 排除CMakeFiles文件夹和指定文件
         while IFS= read -r -d '' file; do
             executableFiles+=("$file")
-        done < <(find "$releaseFolder" -type f -executable ! -path "$releaseFolder/CMakeFiles/*" ! -name "Makefile" ! -name "cmake_install.cmake" -print0)
+        done < <(find "$releaseFolder" -type f ! -path "$releaseFolder/CMakeFiles/*" ! -name "Makefile" ! -name "cmake_install.cmake" -print0)
     done
 
     # 打包所有可执行文件成 zip
