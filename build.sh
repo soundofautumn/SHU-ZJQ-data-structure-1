@@ -25,6 +25,10 @@ if [ ${#targetFolders[@]} -gt 0 ]; then
         done < <(find "$releaseFolder" -type f -executable ! -path "$releaseFolder/CMakeFiles/*" ! -name "Makefile" ! -name "cmake_install.cmake" -print0)
     done
 
+    for file in "${executableFiles[@]}"; do
+        echo "$file"
+    done
+
     # 打包所有可执行文件成 zip
     zip -j "$zipFilePath" "${executableFiles[@]}"
 
