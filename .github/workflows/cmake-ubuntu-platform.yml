@@ -43,7 +43,7 @@ jobs:
       - name: Run Release
         run: |
          chmod +x ${{ github.workspace }}/build.sh
-         ${{ github.workspace }}/build.sh ${{ steps.strings.outputs.build-output-dir }}
+         ${{ github.workspace }}/build.sh -s ${{ steps.strings.outputs.build-output-dir }}
       - name: Tag Release
         run: |
          git config user.name 'github-actions[bot]'

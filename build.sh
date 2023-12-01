@@ -1,7 +1,17 @@
 #!/bin/bash
 
-# 设置源文件夹路径，默认为当前目录
-sourceFolder="./"
+# 读取命令行参数
+while getopts "s:" arg; do
+    case $arg in
+    s)
+        sourceFolder=$OPTARG
+        ;;
+    ?)
+        echo "Usage: build.sh [-s sourceFolder]"
+        exit 1
+        ;;
+    esac
+done
 
 # 设置目标文件夹名称的前缀
 targetFolderPrefix="lab"
