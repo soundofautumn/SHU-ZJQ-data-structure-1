@@ -53,6 +53,6 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-        files: ./build/Release.zip
-        tag_name: ubuntu-latest
+          files: ./build/Release.zip
+          tag_name: ubuntu-latest
 
