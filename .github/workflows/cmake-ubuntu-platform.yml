@@ -43,7 +43,7 @@ jobs:
       - name: Run Release
         run: |
          chmod +x ${{ github.workspace }}/build.sh
-         ls -l ${{ github.workspace }}/lab0
+         tree ${{ github.workspace }}/build 
          ${{ github.workspace }}/build.sh -s ${{ steps.strings.outputs.build-output-dir }}
       - name: Tag Release
         run: |
