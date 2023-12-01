@@ -7,5 +7,4 @@ set(CMAKE_CXX_STANDARD 11)
 add_executable(SeqList
         SeqList.h
         main.cpp
-        Point2D.cpp
-        ../lab2/main.cpp)
+        Point2D.cpp)
