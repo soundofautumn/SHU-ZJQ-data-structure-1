@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set reusable strings
         # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
@@ -42,6 +42,7 @@ jobs:
         run: ctest --build-config ${{ env.build_type }}
       - name: Run Release
         run: |
+         chmod +x ${{ github.workspace }}/build.sh
          ${{ github.workspace }}/build.sh ${{ steps.strings.outputs.build-output-dir }}
       - name: Tag Release
         run: |
