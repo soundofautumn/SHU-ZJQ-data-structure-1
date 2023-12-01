@@ -1,17 +1,7 @@
 #!/bin/bash
 
-# 读取命令行参数
-while getopts "s:" arg; do
-    case $arg in
-    s)
-        sourceFolder=$OPTARG
-        ;;
-    ?)
-        echo "Usage: build.sh [-s sourceFolder]"
-        exit 1
-        ;;
-    esac
-done
+# 设置源文件夹路径，默认为当前目录
+sourceFolder="./"
 
 # 设置目标文件夹名称的前缀
 targetFolderPrefix="lab"
@@ -25,11 +15,14 @@ if [ ${#targetFolders[@]} -gt 0 ]; then
     zipFileName="Release.zip"
     zipFilePath="$sourceFolder/$zipFileName"
 
-    # 遍历每个目标文件夹，获取其中的所有可执行文件
+    # 遍历每个目标文件夹，获取其中除了特定文件夹和指定文件外的所有可执行文件
     executableFiles=()
     for folder in "${targetFolders[@]}"; do
-        releaseFolder="$folder/Release"
-        executableFiles+=("$releaseFolder"/*)
+        releaseFolder="$folder"
+        # 排除CMakeFiles文件夹和指定文件
+        while IFS= read -r -d '' file; do
+            executableFiles+=("$file")
+        done < <(find "$releaseFolder" -type f -executable ! -path "$releaseFolder/CMakeFiles/*" ! -name "Makefile" ! -name "cmake_install.cmake" -print0)
     done
 
     # 打包所有可执行文件成 zip
