@@ -17,6 +17,7 @@ done
 targetFolderPrefix="lab"
 
 # 构造目标文件夹的路径列表
+# shellcheck disable=SC2207
 targetFolders=($(find "$sourceFolder" -maxdepth 1 -type d -name "$targetFolderPrefix*"))
 
 # 如果存在目标文件夹，则进行打包操作
@@ -33,10 +34,6 @@ if [ ${#targetFolders[@]} -gt 0 ]; then
         while IFS= read -r -d '' file; do
             executableFiles+=("$file")
         done < <(find "$releaseFolder" -type f -executable ! -path "$releaseFolder/CMakeFiles/*" ! -name "Makefile" ! -name "cmake_install.cmake" -print0)
-    done
-
-    for file in "${executableFiles[@]}"; do
-        echo "$file"
     done
 
     # 打包所有可执行文件成 zip
