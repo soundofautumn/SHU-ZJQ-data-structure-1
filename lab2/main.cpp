@@ -13,7 +13,21 @@ int main() {
     stack.Push(p1);
     stack.Push(p2);
     stack.Push(p3);
+    cout << "length:"
+         << stack.GetLength() << endl;
+    cout << "stack is empty:"
+         << stack.IsEmpty() << endl;
+    cout << "stack: " << endl;
     stack.Traverse([](const Point2D &point2D) {
         cout << point2D << endl;
     });
+    Point2D p4;
+    stack.Pop(p4);
+    cout << "pop: "
+         << p4 << endl;
+    cout << "stack: " << endl;
+    stack.Traverse([](const Point2D &point2D) {
+        cout << point2D << endl;
+    });
+    return 0;
 }

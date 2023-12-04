@@ -21,7 +21,7 @@ protected:
     int maxSize; // 栈最大容量
     ElemType *elems;// 元素存储空间
 public:
-    SeqStack(int size = DEFAULT_SIZE);
+    explicit SeqStack(int size = DEFAULT_SIZE);
 
     virtual ~SeqStack();
 
@@ -31,7 +31,7 @@ public:
 
     void Clear();
 
-    Status Push(const ElemType e);
+    Status Push(ElemType e);
 
     Status Top(ElemType &e) const;
 
