@@ -114,7 +114,7 @@ StaticLinkedList<T>::~StaticLinkedList() {
 }
 
 template<typename T>
-bool StaticLinkedList<T>::insert(StaticLinkedList::size_type pos, const value_type &value) {
+bool StaticLinkedList<T>::insert(size_type pos, const value_type &value) {
     // pos 从 0 开始 因为是插入 所以pos的范围是 [0, size)
     // 如果是空链表 pos 只能是 0
     if (!(pos == 0 && this->empty()) && (pos < 0 || pos >= this->size)) {
@@ -125,7 +125,7 @@ bool StaticLinkedList<T>::insert(StaticLinkedList::size_type pos, const value_ty
     }
     // 先找到插入位置的前一个位置
     size_type i = 0;
-    for (size_type j = 1; j < pos; ++j) {
+    for (size_type j = 0; j < pos; ++j) {
         i = this->arr[i].next;
     }
     // 从空闲链表中取出一个节点
@@ -148,14 +148,14 @@ inline bool StaticLinkedList<T>::insert(const value_type &value) {
 }
 
 template<typename T>
-bool StaticLinkedList<T>::remove(StaticLinkedList::size_type pos) {
+bool StaticLinkedList<T>::remove(size_type pos) {
     // pos 从 0 开始 因为是删除 所以pos的范围是 [0, size)
     if (pos < 0 || pos >= this->size) {
         return false;
     }
     // 先找到删除位置的前一个位置
     size_type i = 0;
-    for (size_type j = 1; j < pos; ++j) {
+    for (size_type j = 0; j < pos; ++j) {
         i = this->arr[i].next;
     }
     // 要删除的节点
@@ -170,7 +170,7 @@ bool StaticLinkedList<T>::remove(StaticLinkedList::size_type pos) {
 }
 
 template<typename T>
-bool StaticLinkedList<T>::set(StaticLinkedList::size_type pos, const value_type &value) {
+bool StaticLinkedList<T>::set(size_type pos, const value_type &value) {
     // pos 从 0 开始 因为是修改 所以pos的范围是 [0, size)
     if (pos < 0 || pos >= this->size) {
         return false;
@@ -184,13 +184,13 @@ bool StaticLinkedList<T>::set(StaticLinkedList::size_type pos, const value_type 
 }
 
 template<typename T>
-typename StaticLinkedList<T>::value_type StaticLinkedList<T>::get(StaticLinkedList::size_type pos) const {
+typename StaticLinkedList<T>::value_type StaticLinkedList<T>::get(size_type pos) const {
     // pos 从 0 开始 因为是获取 所以pos的范围是 [0, size)
     if (pos < 0 || pos >= this->size) {
         throw std::out_of_range("out of range");
     }
     size_type i = this->head;
-    for (size_type j = 1; j < pos; ++j) {
+    for (size_type j = 0; j < pos; ++j) {
         i = this->arr[i].next;
     }
     return this->arr[i].data;
