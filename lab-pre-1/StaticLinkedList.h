@@ -208,8 +208,8 @@ typename StaticLinkedList<T>::size_type StaticLinkedList<T>::find(const value_ty
         i = this->arr[i].next;
         j++;
     }
-    // 如果没有找到 返回0
-    return 0;
+    // 如果没有找到 返回-1
+    return -1;
 }
 
 template<typename T>
