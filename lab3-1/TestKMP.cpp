@@ -2,9 +2,12 @@
 #include "KMP.h"              // KMP算法
 
 int main() {    // 测式KMP字符串模式匹配算法
+#ifdef _WIN32
+    system("chcp 65001");   // 设置字符集为UTF-8
+#endif
     String ob, pat;         // 主串和模式串
 
-    cout<<"请依次输入主串和模式串："<<endl;
+    cout << "请依次输入主串和模式串：" << endl;
     // 读入主串和模式串 各串以回车结束
     std::string str;
     getline(cin, str);

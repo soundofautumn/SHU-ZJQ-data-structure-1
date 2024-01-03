@@ -1,7 +1,9 @@
 #include "TriSparseMatrix.h"        // 稀疏矩阵的三元组顺序表
 
 int main() {
-
+#ifdef _WIN32
+    system("chcp 65001");   // 设置字符集为UTF-8
+#endif
     try                                // 用try封装可能出现异常的代码
     {
         const int rs = 7, cs = 6;

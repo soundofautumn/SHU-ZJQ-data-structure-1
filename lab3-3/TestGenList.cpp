@@ -1,7 +1,9 @@
 #include "GenList.h"            // 广义表
 
 int main() {
-
+#ifdef _WIN32
+    system("chcp 65001");   // 设置字符集为UTF-8
+#endif
     GenList<char> g, g1;
     char e;
     int c = -1;
