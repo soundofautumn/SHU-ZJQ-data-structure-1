@@ -5,6 +5,7 @@
 #ifndef DATA_STRUCTURE_PASSENGER_H
 #define DATA_STRUCTURE_PASSENGER_H
 
+#include <memory>
 #include <string>
 #include <iostream>
 #include "datetime.h"
