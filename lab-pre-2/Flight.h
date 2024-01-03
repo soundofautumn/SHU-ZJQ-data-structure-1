@@ -5,6 +5,7 @@
 #ifndef DATA_STRUCTURE_FLIGHT_H
 #define DATA_STRUCTURE_FLIGHT_H
 
+#include <memory>
 #include <string>
 #include <iostream>
 #include "SeqList.h"
