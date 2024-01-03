@@ -76,15 +76,15 @@ namespace flight {
     };
 
     struct datetime {
-        date date;
-        time time;
+        date _date;
+        time _time;
 
-        int &year = date.year;
-        int &month = date.month;
-        int &day = date.day;
-        int &hour = time.hour;
-        int &minute = time.minute;
-        int &second = time.second;
+        int &year = _date.year;
+        int &month = _date.month;
+        int &day = _date.day;
+        int &hour = _time.hour;
+        int &minute = _time.minute;
+        int &second = _time.second;
 
         datetime();
 

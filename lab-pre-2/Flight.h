@@ -19,7 +19,7 @@ namespace flight {
     struct FlightInfo {
         typedef std::string flight_number_type;
         typedef std::string place_type;
-        typedef datetime datetime;
+        typedef flight::datetime datetime;
         typedef double price_type;
         typedef int seat_count_type;
         flight_number_type flight_number;
