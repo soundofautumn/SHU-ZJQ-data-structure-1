@@ -9,8 +9,10 @@ int main() {
     int c = -1;
     int i;
     Status sta;
+    std::string str;
+    GenList<char> p;
 
-    while (c != '0') {
+    while (c != 0) {
         cout << endl << "1. 生成广义表.";
         cout << endl << "2. 显示广义表.";
         cout << endl << "3. 在表头插入原子元素.";
@@ -83,9 +85,7 @@ int main() {
                 break;
             case 11:
                 cout << "请输入查询语句eg: (THT):";
-                std::string str;
                 cin >> str;
-                GenList<char> p;
                 if (str[0] == 'T')
                     p = g.GetTail();
                 else if (str[0] == 'H')
@@ -107,11 +107,20 @@ int main() {
                 cout << "查询结果为:";
                 p.Show();
                 cout << endl;
+                break;
+            case 0:
+            default:
+                break;
         }
     }
 
-
+#ifdef _WIN32
     system("PAUSE");        // 调用库函数system()
+#endif
+#if defined( __APPLE__) || defined(__linux__)
+    cout << "Please press any key to continue..." << endl;
+    system("read");
+#endif
     return 0;               // 返回值0, 返回操作系统
 }
 
