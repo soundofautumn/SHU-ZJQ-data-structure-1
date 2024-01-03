@@ -114,21 +114,21 @@ time::operator std::string() const {
     return ss.str();
 }
 
-datetime::datetime() : date(), time() {
+datetime::datetime() : _date(), _time() {
 
 }
 
 datetime::datetime(const std::string &datetime_str) {
     // yyyy-mm-dd hh:mm:ss
     try {
-        date = flight::date(datetime_str.substr(0, 10));
-        time = flight::time(datetime_str.substr(11, 8));
+        _date = flight::date(datetime_str.substr(0, 10));
+        _time = flight::time(datetime_str.substr(11, 8));
     } catch (std::invalid_argument &e) {
         throw std::invalid_argument("Invalid datetime");
     }
 }
 
-datetime::datetime(const std::string &date_str, const std::string &time_str) : date(date_str), time(time_str) {
+datetime::datetime(const std::string &date_str, const std::string &time_str) : _date(date_str), _time(time_str) {
 
 }
 
@@ -144,24 +144,24 @@ void datetime::read(std::istream &is) {
 
 void datetime::write(std::ostream &os) const {
     // yyyy-mm-dd hh:mm:ss
-    date.write(os);
+    _date.write(os);
     os << " ";
-    time.write(os);
+    _time.write(os);
 }
 
 bool datetime::empty() const {
-    return date.empty() && time.empty();
+    return _date.empty() && _time.empty();
 }
 
 datetime& datetime::operator=(const datetime &rhs) {
-    date = rhs.date;
-    time = rhs.time;
+    _date = rhs._date;
+    _time = rhs._time;
     return *this;
 }
 
 bool datetime::operator==(const datetime &rhs) const {
-    return date == rhs.date &&
-           time == rhs.time;
+    return _date == rhs._date &&
+            _time == rhs._time;
 }
 
 bool datetime::operator!=(const datetime &rhs) const {
