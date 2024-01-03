@@ -1,3 +1,4 @@
+#include <string>
 #include "KMP.h"              // KMP算法
 
 int main() {    // 测式KMP字符串模式匹配算法
