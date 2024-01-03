@@ -2,7 +2,7 @@
 #define __TRI_SPARSE_MATRIX_H__
 
 #include "Assistance.h"                // 辅助软件包
-#include "triple.h"                    // 三元组类
+#include "Triple.h"                    // 三元组类
 
 // 稀疏矩阵三元组顺序表类
 template<class ElemType>
