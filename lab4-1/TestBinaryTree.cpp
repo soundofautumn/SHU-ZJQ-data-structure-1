@@ -1,6 +1,9 @@
 #include "BinaryTree.h"        // 二叉链表类
 
 int main() {
+#ifdef _WIN32
+    system("chcp 65001");   // 设置字符集为UTF-8
+#endif
     BinTreeNode<char> *p;
     char pre[] = {'A', 'B', 'D', 'E', 'G', 'H', 'C', 'F', 'I'}; // 先序序列
     char in[] = {'D', 'B', 'G', 'E', 'H', 'A', 'C', 'F', 'I'};  // 中序序列
