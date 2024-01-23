@@ -87,5 +87,5 @@ void test_by_file() {
     clock_t end = clock();
     cout << result << endl;
     cout << "Time: " << (double) (end - start) / CLOCKS_PER_SEC << "s" << endl;
-
+    file.close();
 }
